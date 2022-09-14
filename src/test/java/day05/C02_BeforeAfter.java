@@ -28,19 +28,13 @@ public class C02_BeforeAfter {
     }
     @Test
     public void method2(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         driver.get("https://techproeducation.com");
 
     }
     @Test
     public void method3(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         driver.get("https://hepsiburada.com");
 
     }
