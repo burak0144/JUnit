@@ -3,6 +3,7 @@ package day05;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,6 +22,7 @@ public class C03_BeforeClassAfterClass {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
     @Test
+    @Ignore("Calismasin")
     public void method1(){
         driver.get("https://amazon.com");
     }
