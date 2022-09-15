@@ -7,12 +7,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class BestBuyAssertions {
+public class C03_Assertions {
     static WebDriver driver;
     @BeforeClass
     public static void setUp(){
@@ -33,7 +32,7 @@ public class BestBuyAssertions {
            // ○ Sayfa URL’inin https://www.bestbuy.com/ ‘a esit oldugunu test edin
            String actualUrl=driver.getCurrentUrl();
            String expectedUrl="https://www.bestbuy.com/";
-           Assert.assertTrue(actualUrl.contains(expectedUrl));
+           Assert.assertEquals(actualUrl,expectedUrl);
 
        }
     @Test
@@ -46,14 +45,14 @@ public class BestBuyAssertions {
     @Test
     public void test3(){
         // ○ logoTest => BestBuy logosunun görüntülendigini test edin
-        WebElement logoWE=driver.findElement(By.xpath("(//img[@class='logo'])[1]"));
-        Assert.assertTrue(logoWE.isDisplayed());
+
+        Assert.assertTrue(driver.findElement(By.xpath("(//img[@class='logo'])[1]")).isDisplayed());
     }
     @Test
     public void test4(){
         // ○ FrancaisLinkTest => Fransizca Linkin görüntülendiğini test edin
-    WebElement fransizcaLinkiWE=driver.findElement(By.xpath("//button[@lang='fr']"));
-    Assert.assertTrue(fransizcaLinkiWE.isDisplayed());
+
+    Assert.assertTrue(driver.findElement(By.xpath("//button[@lang='fr']")).isDisplayed());
     }
 
 

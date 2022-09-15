@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class RadioButton {
+public class C01_RadioButton {
     WebDriver driver;
 //Gerekli yapiyi olusturun ve aşağıdaki görevi tamamlayın.
     @Before
