@@ -10,6 +10,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class C02_Asseertions {
+   //Assert.assertTrue oldugunda contain ile method kullanilir ve ici dogru olmasi gerekir
+    //Assert.assertFalse oldugunda contain ile kullanilir ve ici yanlis olmali
+    //Assert.assertequals oldugunda , ile kullanilir ve ici esit olmali
+    //Assert.assertNotEquals oldugunda , ile kullanilir ve ici esit olmamali
    static WebDriver driver;
     @BeforeClass
     public static void setUp(){

@@ -11,7 +11,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class C03_BeforeClassAfterClass {
-    //BeforeClass ve AfterClass notasyonlari kullaniyorsak olusturacagimiz methodu static yapmamiz gerekir
+     /*
+    BeforeClass'la AfterClass sadece en basta 1 kere ve en sonda 1 kere calisir
+    Before ile After ise her test oncesi 1 kere ve her test sonrasi 1 kere calisir
+    BeforeClass'la AfterClass icin class seviyesinde Webdriver static olarak atanmali
+    Before ile After'da ise Webdriver instance olarak atanmali
+
+     */
 
     static WebDriver driver;
     @BeforeClass
