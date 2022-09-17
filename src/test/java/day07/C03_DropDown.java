@@ -16,15 +16,32 @@ import java.time.Duration;
 import java.util.List;
 
 public class C03_DropDown {
+    //Dropdown denince akla select tagi gelmeli
+    //1.adim dropdown locate edilmeli
+    //2.adim Select objesi olusmali parametre olarak locate edilen yazilmali
+    //3.adim Dropdown'dan secim yapilacak(Index,isim,deger)
+    /*
+
+           ●https://www.amazon.com/ adresinegidin.
+           -Test1
+           Arama kutusunun yanindaki kategori menusundeki kategori sayisinin45
+           oldugunu testedin
+           -Test2
+           1.Kategori menusunden Books seceneginisecin
+           2.Arama kutusuna Java yazin vearatin
+           3.Bulunan sonuc sayisiniyazdirin
+           4.Sonucun Java kelimesini icerdigini testedin
+     */
     WebDriver driver;
+    Select select;
 
     @Before
-    public void setUp() {
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("https://www.amazon.com");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.get("https://www.amazon.com/");
     }
 
     @After
@@ -33,26 +50,47 @@ public class C03_DropDown {
     }
 
     @Test
-    public void test01() {
-        //Arama kutusunun yanindaki kategori menusundeki kategori sayisinin45
-        //olmadigini testedin
-        WebElement ddm=driver.findElement(By.cssSelector("#searchDropdownBox"));
-        Select select=new Select(ddm);
+    public void test1() {
+        //Arama kutusunun yanindaki kategori menusundeki kategori sayisinin 45
+        //oldugunu test edin
+        WebElement ddm = driver.findElement(By.xpath("//*[@id='searchDropdownBox']"));
+        select = new Select(ddm);
         /*
-DropDown menuye ulasmak icin select class'indan bir obje olustururuz
-ve locate ettigimiz dropdown webelement'inin select class'ina tanimlariz
-ve getOption methodunu kullanarak dropdown'u bir liste atarak dropdown menunun
-butun elemanlarının sayısına ulasabiliriz
- */
-        List<WebElement> ddmList=select.getOptions();
+        Dropdown menuye ulasmak için Select classından bir obje oluştururuz
+        ve locate ettiğimiz dropdown weblementini Select classına tanımlarız
+        ve getOption methodunu kullanarak dropdown'u bir list'e atarak dropdawn menunun bütün elemanlarının
+        sayısına ulaşabiliriz
+         */
+        List<WebElement> ddmList = select.getOptions();
         System.out.println(ddmList.size());
-
-        int actualDeger=ddmList.size();
-        int expectedDeger=45;
-        Assert.assertNotEquals(actualDeger,expectedDeger);
-
+        int expectedSayi = 45;
+        int actualDds = ddmList.size();
+        Assert.assertNotEquals(expectedSayi, actualDds);
     }
 
+    @Test
+    public void test2() {
+//           1.Kategori menusunden Books secenegini secin
+        WebElement ddm = driver.findElement(By.xpath("//*[@id='searchDropdownBox']"));
+        select = new Select(ddm);
+
+        //select.selectByVisibleText("Books"); // Eğer Dropdown menudeki option'a string olarak ulaşmak istersek bu methodu kullanırız
+        //select.selectByIndex(5); // Eğer dropdown menusünun index'i ile ulasmak istersek bu methodu kullanırız
+        select.selectByValue("search-alias=stripbooks-intl-ship"); // Eğer dropdown menusundeki optiona value ile ulaşmak istersek bu methodu kullanırız
+         /*
+        Dropdown menude seçtiğimiz optiona ulaşmak istersek select.getFirstSelectedOption()
+        methodunu kullanırız
+         */
+        System.out.println(select.getFirstSelectedOption().getText());
+//           2.Arama kutusuna Java yazin ve aratin
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java", Keys.ENTER);
+//           3.Bulunan sonuc sayisiniyazdirin
+        WebElement sonucYazisi = driver.findElement(By.xpath("//*[@class='a-section a-spacing-small a-spacing-top-small']"));
+        System.out.println(sonucYazisi.getText());
+//           4.Sonucun Java kelimesini icerdigini testedin
+        String expectedKelime = "Java";
+        String actualSonucYazisi = sonucYazisi.getText();
+        Assert.assertTrue(actualSonucYazisi.contains(expectedKelime));
 
     }
-
+}

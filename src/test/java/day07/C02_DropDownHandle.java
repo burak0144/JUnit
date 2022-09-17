@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.util.List;
 
-public class C02_DropDoenHandle {
+public class C02_DropDownHandle {
     WebDriver driver;
 
     @Before
@@ -58,6 +58,10 @@ public class C02_DropDoenHandle {
         String [] sonucSayisiArr=sonuSayisiWE.getText().split(" ");
         System.out.println("Sonuc Sayisi"+sonucSayisiArr[3]);
         //.Sonucun Java kelimesini icerdigini testedin
+        WebElement resultWE=driver.findElement(By.xpath("//span[text()='\"Java\"']"));
+        String actualResult=resultWE.getText();
+        String expectedResult="\"Java\"";
+        Assert.assertEquals(actualResult,expectedResult);
 
     }
 
