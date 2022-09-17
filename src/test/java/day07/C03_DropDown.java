@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 import java.util.List;
 
-public class C03_DropDown  {
+public class C03_DropDown   {
     //Dropdown denince akla select tagi gelmeli
     //1.adim dropdown locate edilmeli
     //2.adim Select objesi olusmali parametre olarak locate edilen yazilmali
