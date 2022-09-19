@@ -27,7 +27,7 @@ public class C02_WindowHandle {
         String amazonWindowHanle= driver.getWindowHandle();
         /*
         Eger bize verilen task'te sayfalari arasi gecis varsa her driver.get() methodundan sonra
-        driver'in wondow handle degerini string bir degiskene atariz
+        driver'in wondow handle degerini string bir degiskene atariz.Sayfalar arasi gecis yapmak icin hashkod ile gecis yapilir
          */
 //2- Url'nin amazon içerdiğini test edelim
         String expectedUrl="amazon";
@@ -42,7 +42,7 @@ public class C02_WindowHandle {
         String actualTitle=driver.getTitle();
         Assert.assertTrue(actualTitle.contains(ecpectedTitle));
 //5- İlk sayfaya dönüp sayfada java aratalım
-         driver.switchTo().window(amazonWindowHanle);
+         driver.switchTo().window(amazonWindowHanle);//sayfalar arasi gecis icin bu method kullanilir
          driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("java", Keys.ENTER);
 //6- Arama sonuclarının java içerdiğini test edelim
        WebElement aramaSonucu=driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
@@ -56,7 +56,7 @@ public class C02_WindowHandle {
     }
     @After
     public void tearDown() {
-        //driver.close();
+        driver.quit();
     }
     }
 
