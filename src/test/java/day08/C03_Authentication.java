@@ -38,6 +38,6 @@ public class C03_Authentication {
     }
     @After
     public void tearDown() {
-        //driver.close();
+        driver.close();
     }
 }
