@@ -20,5 +20,13 @@ public class C04_ReadExcel {
         //-Turkce baskentler sutununu yazdiralim
         int sonSatir=workbook.getSheet("Sayfa1").getLastRowNum();
         System.out.println(sonSatir);
+        String turkceBaskentler="";
+        for (int i=0; i<=sonSatir;i++) {
+        turkceBaskentler=workbook.getSheet("Sayfa1").getRow(i).getCell(3).toString();
+            System.out.println(turkceBaskentler);
+
+        }
+
+        }
     }
-}
+
