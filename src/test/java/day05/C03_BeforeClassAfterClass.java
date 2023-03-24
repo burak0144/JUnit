@@ -31,7 +31,7 @@ public class C03_BeforeClassAfterClass {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
-    @Test
+
     @Ignore("Calismasin")
     public void method1(){
         driver.get("https://amazon.com");

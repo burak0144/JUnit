@@ -41,7 +41,7 @@ public class C02_Asseertions {
         //url'in "amazon" icergini test et
         String actualUrl= driver.getCurrentUrl();
         String expectedUrl="amazon";
-        Assert.assertFalse(actualUrl.contains(expectedUrl));
+        Assert.assertTrue(actualUrl.contains(expectedUrl));
 
     }
     @Test

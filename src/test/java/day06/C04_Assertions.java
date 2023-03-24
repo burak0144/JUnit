@@ -38,6 +38,7 @@ public class C04_Assertions {
         String actualTitle=driver.getTitle();
         String expecteTitle="YouTube";
         Assert.assertEquals(actualTitle,expecteTitle);
+
     }
     @Test
     public void imageTest(){
