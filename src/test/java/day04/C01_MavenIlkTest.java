@@ -35,10 +35,10 @@ public class C01_MavenIlkTest {
       // 3- “Samsung headphones” ile arama yapalim
         aramaKutusu.sendKeys("Samsung headphones", Keys.ENTER);
       // 4- Bulunan sonuc sayisini yazdiralim
-     List< WebElement> sonucYazisiWE=driver.findElements(By.xpath("//span[text()='1-16 of 248 results for']"));
+     List< WebElement> sonucYazisiWE=driver.findElements(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
        String sonucYazisi=sonucYazisiWE.get(0).getText(); //String ifade
        String [] sonucSayisiArr=sonucYazisi.split(" ");//splitte sonuc array verir
-        System.out.println("Sonuc Sayisi"+sonucSayisiArr[2]);
+        System.out.println("Sonuc Sayisi:"+sonucSayisiArr[2]);
       // 5- Ilk urunu tiklayalim
       WebElement ilkUrun= driver.findElement(By.xpath("//img[@class='s-image']"));
       ilkUrun.click();
