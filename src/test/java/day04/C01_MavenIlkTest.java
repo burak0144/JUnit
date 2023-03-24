@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.lang.reflect.Array;
 import java.time.Duration;
@@ -13,10 +14,16 @@ import java.util.Arrays;
 import java.util.List;
 
 public class C01_MavenIlkTest {
+     public static WebDriver driver;
     public static void main(String[] args) {
 
         WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
+
+        ChromeOptions co=new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(co);
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
