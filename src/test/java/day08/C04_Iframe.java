@@ -48,6 +48,6 @@ public class C04_Iframe {
     }
     @After
     public void tearDown() {
-        //driver.close();
+        driver.close();
     }
 }
