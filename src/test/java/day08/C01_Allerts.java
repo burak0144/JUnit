@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -33,12 +34,14 @@ public class C01_Allerts {
     // Click for JS Alert butonuna tıklayalım
         driver.findElement(By.xpath("//*[text()='Click for JS Alert']")).click();
     // Tıkladıktan sonra çıkan uyarı mesajına (Alerte) tamam diyelim
-       driver.switchTo().alert().accept();
+      driver.switchTo().alert().accept();
+
+
 
 
     }
     @After
     public void tearDown() {
-        driver.close();
+       driver.close();
     }
 }
