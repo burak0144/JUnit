@@ -41,10 +41,11 @@ public class C02_DropDownHandle {
         //Arama kutusunun yanindaki kategori menusundeki kategori sayisinin45
         //olmadigini testedin
         List<WebElement> drops=driver.findElements(By.xpath("//option"));
-        System.out.println(drops.size());
-        int actualDeger=drops.size();
-        int expectedDeger=45;
-        Assert.assertNotEquals(actualDeger,expectedDeger);
+        System.out.println("katagori sayisi = " + drops.size());
+        int actual=drops.size();
+        int expected=45;
+        Assert.assertNotEquals(actual, expected);
+
 
     }
 
@@ -58,9 +59,9 @@ public class C02_DropDownHandle {
         //.Arama kutusuna Java yazin vearatin
         driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("Java", Keys.ENTER);
         //.Bulunan sonuc sayisiniyazdirin
-        WebElement sonuSayisiWE=driver.findElement(By.xpath("//span[text()='1-16 of over 30,000 results for']"));
+        WebElement sonuSayisiWE=driver.findElement(By.xpath("(//div[@class='a-section a-spacing-small a-spacing-top-small'])[1]"));
         String [] sonucSayisiArr=sonuSayisiWE.getText().split(" ");
-        System.out.println("Sonuc Sayisi"+sonucSayisiArr[3]);
+        System.out.println("Sonuc Sayisi:"+sonucSayisiArr[3]);
         //.Sonucun Java kelimesini icerdigini testedin
         WebElement resultWE=driver.findElement(By.xpath("//span[text()='\"Java\"']"));
         String actualResult=resultWE.getText();
