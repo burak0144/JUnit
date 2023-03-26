@@ -18,7 +18,7 @@ public class C04_MouseAcions extends TestBaseBeforeAfter {
      //  https://the-internet.herokuapp.com/context_menu sitesine gidelim
         driver.get("https://the-internet.herokuapp.com/context_menu");
      // Cizili alan uzerinde sag click yapalim
-        WebElement ciziliAlan= driver.findElement(By.cssSelector("#hot-spot"));
+        WebElement ciziliAlan=driver.findElement(By.cssSelector("#hot-spot"));
         Actions action=new Actions(driver);
         action.contextClick(ciziliAlan).perform();
      //  Alert’te cikan yazinin “You selected a context menu” oldugunu
@@ -28,14 +28,14 @@ public class C04_MouseAcions extends TestBaseBeforeAfter {
         Assert.assertEquals(actualCikanYazi, expectedMesaj);
      //  Tamam diyerek alert’i kapatalim
         driver.switchTo().alert().accept();
-       driver.findElement(By.xpath("//div[@style='text-align: center;']")).click();
+
      //  Elemental Selenium linkine tiklayalim
         driver.findElement(By.xpath("//a[text()='Elemental Selenium']")).click();
         List<String> windowList=new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(windowList.get(1));
      //  Acilan sayfada h1 taginda “Elemental Selenium” yazdigini test edelim
         WebElement acilanSayfa=driver.findElement(By.xpath("//h1"));
-      Assert.assertEquals("Elemental Selenium",driver.findElement(By.xpath("//h1")).getText());
-
+      //Assert.assertEquals("Elemental Selenium",driver.findElement(By.xpath("//h1")).getText());
+        Assert.assertEquals("Elemental Selenium",acilanSayfa.getText());
     }
 }
