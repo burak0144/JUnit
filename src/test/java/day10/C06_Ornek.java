@@ -13,7 +13,7 @@ public class C06_Ornek extends TestBaseBeforeAfter {
         WebElement signin =driver.findElement(By.xpath("//a[@id=\"nav-link-accountList\"]"));
         Actions actions=new Actions((driver));
         actions.moveToElement(signin).perform();
-        driver.findElement(By.xpath("(//span[@class='nav-text'])[14]")).click();
+        driver.findElement(By.xpath("//span[text()='Music Library']")).click();
         WebElement library=driver.findElement(By.cssSelector("#contextMenuHoverButton"));
         actions.moveToElement(library).perform();
         driver.findElement(By.xpath("(//music-list-item[@class='hydrated'])[1]")).click();
