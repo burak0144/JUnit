@@ -25,7 +25,6 @@ Bir web sitesinde bir mouse ile açılan bir web elementine ulaşmak istersek
   arasında web elementi bulur ama ulaşamadığı için
    ElemenNotInteractableException: element not interactable exception'i fırlatır
  */
-
     driver.findElement(By.xpath("(//span[@class='nav-text'])[1]")).click();
 }
 }
